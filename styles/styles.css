@@ -40,6 +40,7 @@ body {
     font-family: AvenirMedium;
 }
 
+/* header */
 header {
     position: fixed;
     top: 0;
@@ -50,7 +51,7 @@ header {
     align-items: center;
     background-color: white;
     padding: 1rem;
-    /*border-bottom: 0.05rem solid black;*/
+    border-bottom: 0.05rem solid black;*/
 }
 
 header .logo {
@@ -73,7 +74,6 @@ header .logo {
     min-width: 2rem;
     color: black;
     font-size: 20px;
-    
 }
 
 .search-bar input {
@@ -85,4 +85,36 @@ header .logo {
     font-size: 17px;
     font-weight: 500;
     transition: var(--tran-05);
+}
+
+/* navigatie */
+
+/*
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user img {
+    width: 3rem;
+    border-radius: 180px;
+}
+
+.user-info {
+    display: ;
+}
+*/
+
+nav {
+    position: fixed;
+    top: 92px;
+    left: 0;
+    width: 15rem;
+    height: 100vh;
+    background-color: white;
+}
+
+.nav-link {
+    display: inline-block;
 }
