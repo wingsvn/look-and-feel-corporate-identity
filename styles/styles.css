@@ -1,4 +1,4 @@
-/* fonts */
+/* imported fonts */
 @font-face {
     font-family: AvenirRoman;
     src: url("../fonts/Avenir-roman.ttf");
@@ -14,18 +14,21 @@
     src: url("../fonts/Avenir\ -black.ttf")
 }
 
-/* custom properties */
 :root {
-    /* ===== Colors ===== */
-    --body-color: #E4E9F7;
-    --sidebar-color: #FFF;
-    --primary-color: #D50000;
+    /* colors */
+    --body-color:#e4e9f7;
+    --text-grey-color: #707070;
+    --accent-color: #ff0000;
+    --white-background-color: #fff;
+    --black-color: #000;
+
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
-    --text-color: #707070;
 
     /* fonts */
 
+    /* styling */
+    --medium-padding: 1rem;
 
     /* ====== Transition ====== */
     --tran-03: all 0.2s ease;
@@ -40,7 +43,6 @@
     box-sizing: border-box;
 }
 
-/* website */
 body {
     background-color: var(--body-color);
     font-family: AvenirMedium, sans-serif;
@@ -51,63 +53,34 @@ body {
 header {
     position: fixed;
     top: 0;
-    left: 0; 
+    left: 0;
     right: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 92px;
     width: 100%;
-    background-color: white;
-    padding: 1rem;
+    height: 92px;
+    padding: var(--medium-padding);
+    background-color: var(--white-background-color);
     border-bottom: 0.01rem solid black;
-    z-index: 100;
 }
 
 header .logo {
     width: 7rem; 
     margin: 0.5rem;
 }
-/*
+
 .search-bar {
-    height: 1rem;
     display: flex;
     align-items: center;
-    border-radius: 6px;
-    border: 0.05rem  solid black;
-    background-color: var(--body-color);
-    transition: var(--tran-05);
-    padding: 1rem;
-    margin-right: 1rem;
-}
-
-.search-bar i {
-    min-width: 1rem;
-    color: #707070;
-    font-size: 20px;
-}
-
-.search-bar input {
-    width: 8rem;
-    outline: none;
-    border: none;
-    background-color: var(--body-color);
-    color: var(--text-color);
-    font-size: 17px;
-    font-weight: 500;
-    transition: var(--tran-05);
-}
-*/
-
-.search-bar {
     height: 3rem;
-    display: flex;
-    align-items: center;
-    border-radius: 2rem;
-    background-color: var(--body-color);
-    transition: var(--tran-05);
-    padding: 1rem;
     margin-right: 1rem;
+    background-color: var(--body-color);
+    border: 0.01rem solid black;
+    border-radius: 2rem;
+    transition: var(--tran-05);
+    padding: var(--medium-padding);
 }
 
 .search-bar i {
@@ -134,7 +107,7 @@ header .logo {
 
 .user-image img {
     width: 3rem;
-    /*border: 0.01rem solid black;*/
+    border: 0.01rem solid black;
     border-radius: 2rem;
     margin-right: 1rem;
 }
@@ -153,49 +126,44 @@ header .logo {
     font-weight: 500;
 }
 
-/* menu bar closed */
-.menu {
-    position: fixed;
-    top: 76px;
-    left: 0;
-    width: 2rem;
-    height: 100vh;
-    background-color: white;
-    color: #707070;
-    font-size: 1rem;
-    font-weight: 500;
-    outline: none;
-    border-right: 0.01rem solid black;
-    z-index: 100;
-}
-
-.menu:hover {
-    color: #000;
-}
-
-/* sidebar */
-nav {
+/* sidebar original */
+.dropright-menu {
     position: fixed;
     top: 92px;
     left: 0;
     width: 15rem;
     height: 100vh;
+    background-color: var(--white-background-color);
+    z-index: 100;
+    opacity: 1;
+}
+
+/*
+.dropright-menu.close {
+    position: fixed;
+    top: 92px;
+    left: 0;
+    width: 2rem;
+    height: 100vh;
     background-color: white;
     border-right: 0.01rem solid black;
     z-index: 100;
+    opacity: 1;
+}*/
+
+.nav-list {
+    opacity: 1;
 }
 
 /* list items */
 .nav-link {
-    /*height: 50px;*/
-    padding: 1rem;
+    padding: var(--medium-padding);
     list-style: none;
     border-radius: 0.5rem;
-    /*margin-top: 0.2rem;*/
 }
 
 .nav-link a {
-    color: #707070;
+    color: var(--text-grey-color);
     font-size: 1rem;
     text-decoration: none;
 }
@@ -212,11 +180,11 @@ nav {
 
 /* list buttons modus */
 .nav-link:hover {
-    background-color: #ff0000;
+    background-color: var(--accent-color);
 }
 
 .nav-link a:hover {
-    color: white;
+    color: var(--white-background-color);
 }
 
 /* main */
@@ -224,23 +192,22 @@ nav {
 main {
     position: absolute;
     top: 92px;
-    left: 15rem;
-    /*width: calc(100%-15rem);*/
-    width: 100%;
+    left: 2rem;
+    width: calc(100%-15rem);
+    /*width: 100%;*/
     margin: 1rem;
-    color: #707070;
+    color: var(--text-grey-color);
 }
 
 h1 {
     font-size: 1.5rem;
-    color: black;
 }
 
 h2 {
     font-size: 0.8rem;
 }
 
-.products {
+.container {
     margin-top: 2rem; 
 }
 
@@ -248,50 +215,77 @@ h3 {
     font-size: 1.2rem;
 }
 
-.product-group {
+.carousel {
+    display: flex;
+    margin: 0 1rem 0 1rem;
+}
+
+.carousel-btn {
+    background-color: var(--white-background-color);
+    color: var(--text-grey-color);
+    font-size: 0.8rem;
+    border: none;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    flex-shrink: 0;
+    margin-top: 12rem;
+}
+
+.carousel-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--white-background-color);
+}
+
+.carousel-btn:active {
+    font-size: 1rem;
+}
+
+.items {
     display: flex;
     overflow: scroll;
 }
 
-article {
+.items::-webkit-scrollbar {
+    display: none;
+}
+
+.item {
     margin: 1rem;
     text-align: center;
     width: 15rem;
 }
 
-img, h5, button {
+img, h5, .item button {
     margin-top: 1rem;
 }
 
-article img {
+.item img {
     width: 15rem;
     height: 22rem;
     margin: 1rem;
     box-shadow: 0.3rem 0.3rem #d9d9d9;
 }
 
-article button {
+.item button {
     border: none;
     border-radius: 2rem;
-    padding: 0.8rem;
+    padding: 1rem;
     width: 7rem;
     font-size: 1rem;
-    background-color: #707070;
-    color: white;
+    background-color: var(--text-grey-color);
+    color: var(--white-background-color);
 }
 
-article button:hover {
+.item button:hover {
     background-color: #444444;
-    color: white;
+    color: var(--white-background-color);
 }
 
-article button:active {
-    background-color: black;;
-    color: white;
+.item button:active {
+    background-color: var(--black-color);;
+    color: var(--white-background-color);
 }
-
-
-/* responsive */
 
 /* expandable search-bar */
 @media screen and (max-width: 40rem) {
@@ -304,7 +298,14 @@ article button:active {
     }
 }
 
+/* responsive */
 @media screen and (min-width: 40rem) {
+    main {
+        position: absolute;
+        top: 92px;
+        left: 15rem;
+    }
+
     h1 {
         font-size: 2rem;
     }
@@ -312,11 +313,9 @@ article button:active {
     h3 {
         font-size: 1.5rem;
     }
-}
 
-
-@media screen and (min-width: 60rem) { 
-    h1 {
-        font-size: 3rem;
+    .item img {
+        width: 12rem;
+        height: 17rem;
     }
 }
