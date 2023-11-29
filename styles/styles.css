@@ -396,6 +396,12 @@ img, h5, .item button {
     color: var(--white-background-color);
 }
 
+.item button:disabled {
+    color: #D8D9D9;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 /* expandable search-bar */
 @media screen and (max-width: 40rem) {
     .search-bar input {
