@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OBA Uitleningen & Verlengen</title>
-    <link rel="stylesheet" href="styles/styles.css"/>
+
+    <link rel="stylesheet" href="./styles/styles.css"/>
     <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
-    <script src="/scripts/sripts.js"></script>
+    <link rel="stylesheet" href="https://icon-sets.iconify.design/icon-park-outline/contrast-view-circle/">
+    <script src="./scripts/script.js" defer></script>
 </head>
 
 <body>
@@ -20,7 +22,7 @@
 
         <div class="user-account">
             <span class="user-image">
-                <img src="images/wingsan.png" alt="user-image">
+                <img src="./images/wingsan.png" alt="user-image">
             </span>
 
             <span class="user-information">
@@ -29,8 +31,12 @@
             </span>
         </div>
     </header>
-      
-    <nav class="dropright-menu close">
+    
+    <nav>
+        <i class='bx bx-chevron-right toggle'></i>
+        
+        <div class="menu-bar">
+
             <ul class="nav-list">
 
                 <li class="nav-link">
@@ -109,11 +115,12 @@
                 </li>
 
                 <li class="contrast">
-                    <div class="normal-dark">
-                        <i class='bx bx-moon icon moon'></i>
-                        <i class='bx bx-sun icon sun'></i>
+                    <div class="low-high">
+                        <i class='bx bx-tone' ></i>
+                        <i class='bx bxs-tone' ></i>
                     </div>
-                    <span class="mode-text text">Contrast</span>
+
+                    <span class="contrast-text text">Contrast</span>
 
                     <div class="toggle-switch">
                         <span class="switch"></span>
@@ -122,8 +129,7 @@
             </ul>
         </div>
     </nav>
-
-
+    
     <main>
         <h1>Uitleningen & Verlengen</h1>
         <h2>in te leveren producten: 13</h2>
@@ -197,8 +203,6 @@
                 </button>
             </div>
 
-    
-       
             <h3>CD's</h3>
             <div class="carousel">
                 <button id="pre2" class="carousel-btn" aria-label="previous">

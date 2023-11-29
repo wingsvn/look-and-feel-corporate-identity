@@ -25,8 +25,6 @@
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
 
-    /* fonts */
-
     /* styling */
     --medium-padding: 1rem;
 
@@ -47,9 +45,9 @@ body {
     background-color: var(--body-color);
     font-family: AvenirMedium, sans-serif;
     width: 100%;
+    height: 100vh;
 }
 
-/* header */
 header {
     position: fixed;
     top: 0;
@@ -126,8 +124,7 @@ header .logo {
     font-weight: 500;
 }
 
-/* sidebar original */
-.dropright-menu {
+nav {
     position: fixed;
     top: 92px;
     left: 0;
@@ -138,24 +135,29 @@ header .logo {
     opacity: 1;
 }
 
-/*
-.dropright-menu.close {
-    position: fixed;
-    top: 92px;
-    left: 0;
-    width: 2rem;
-    height: 100vh;
-    background-color: white;
-    border-right: 0.01rem solid black;
-    z-index: 100;
-    opacity: 1;
-}*/
+nav .toggle {
+    position: absolute;
+    top: 8%;
+    right: -15px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background-color: var(--accent-color);
+    color: var(--white-background-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: var(--tran-05);
+}
 
 .nav-list {
+    color: var(--text-grey-color);
     opacity: 1;
 }
 
-/* list items */
 .nav-link {
     padding: var(--medium-padding);
     list-style: none;
@@ -178,7 +180,6 @@ header .logo {
     font-size: 1rem;
 }
 
-/* list buttons modus */
 .nav-link:hover {
     background-color: var(--accent-color);
 }
@@ -187,14 +188,121 @@ header .logo {
     color: var(--white-background-color);
 }
 
-/* main */
+nav .mode {
+    border-radius: 0.5rem;
+    background-color: var(--body-color);
+    position: relative;
+    transition: var(--tran-05);
+    margin: 0.5rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.menu-bar .mode .sun-moon {
+    color: var(--text-grey-color);
+    font-size: 1rem;
+}
+
+.mode .sun-moon i {
+    margin: 0.2rem;
+    font-size: 1.2rem;
+    height: 100%;
+    margin-left: 1rem;
+}
+.mode .sun-moon i.sun {
+    opacity: 0;
+}
+
+body.dark .mode .sun-moon i.sun {
+    opacity: 1;
+}
+
+body.dark .mode .sun-moon i.moon {
+    opacity: 0;
+}
+
+.menu-bar .toggle-switch {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.toggle-switch .switch {
+    position: relative;
+    height: 22px;
+    width: 40px;
+    border-radius: 25px;
+    background-color: var(--accent-color);
+    transition: var(--tran-05);
+}
+
+.switch::before {
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background-color: var(--white-background-color);
+    transition: var(--tran-04);
+}
+
+body.dark .switch::before {
+    left: 20px;
+}
+
+nav .contrast {
+    border-radius: 0.5rem;
+    background-color: var(--body-color);
+    position: relative;
+    transition: var(--tran-05);
+    margin: 0.5rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.menu-bar .contrast .low-high {
+    color: var(--text-grey-color);
+    font-size: 1rem;
+}
+
+.contrast .low-high i {
+    margin: 0.2rem;
+    font-size: 1.2rem;
+    height: 100%;
+    margin-left: 1rem;
+}
+
+.contrast .low-high i.low {
+    opacity: 0;
+}
+
+body.dark .contrast .low-high i.low {
+    opacity: 1;
+}
+
+body.dark .contrast .low-high i.high {
+    opacity: 0;
+}
 
 main {
     position: absolute;
     top: 92px;
-    left: 2rem;
-    width: calc(100%-15rem);
-    /*width: 100%;*/
+    left: 15rem;
+    /*width: calc(100%-15rem);*/
+    width: 100%;
+    height: 100vh;
     margin: 1rem;
     color: var(--text-grey-color);
 }
@@ -273,8 +381,9 @@ img, h5, .item button {
     padding: 1rem;
     width: 7rem;
     font-size: 1rem;
-    background-color: var(--text-grey-color);
-    color: var(--white-background-color);
+    font-weight: 500;
+    background-color: var(--white-background-color);
+    color: var(--text-grey-color);
 }
 
 .item button:hover {
@@ -300,12 +409,6 @@ img, h5, .item button {
 
 /* responsive */
 @media screen and (min-width: 40rem) {
-    main {
-        position: absolute;
-        top: 92px;
-        left: 15rem;
-    }
-
     h1 {
         font-size: 2rem;
     }
